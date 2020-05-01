@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Estoque\Http\Requests;
 
-use App\Http\Requests\Request;
+use Estoque\Http\Requests\Request;
 
 class CategoriaFormRequest extends Request
 {
