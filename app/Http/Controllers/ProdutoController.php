@@ -2,86 +2,52 @@
 
 namespace Estoque\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+//use Illuminate\Http\Request;
 use Estoque\Http\Requests;
 use Estoque\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
+use Estoque\Http\Requests\ProdutoFormRequest;
+use Estoque\Produto;
 
-class ProdutoController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+class ProdutoController extends Controller {
+    public function index(){
+        $produtos = Produto::all();
+        return view('produtos.produtos')->with('produtos', $produtos);
+        //return response()->json($produtos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function indexJson(){
+        $produtos = Produto::all();
+        return response()->json($produtos);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function salvar(){
+        $produto = Produto::create(Request::all());
+        $produto->save();
+        return redirect()->action('ProdutoController@index')->withInput(Request::only('nome'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function cadastrar(){
+        return view('produtos.formulario');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function atualizar(){
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function detalhar($id){
+        $produto = Produto::find($id);
+        if (empty($produto)){
+            return "<p class='text-danger'>Não foi possível encontrar o produto !!!</p>";
+        }
+        return view('produtos.visualizar')->with('produto', $produto);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function deletar($id){
+        $produto = Produto::find($id);
+        $produto->delete();
+        return redirect()->action('ProdutoController@index');
     }
 }

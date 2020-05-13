@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Estoque\Categoria;
+use Estoque\Produto;
+use Estoque\User;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -9,11 +12,13 @@ class DatabaseSeeder extends Seeder {
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         Model::unguard();
 
         // $this->call(UserTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(CategoriaTableSeeder::class);
+        $this->call(ProdutoTableSeeder::class);
 
         Model::reguard();
     }

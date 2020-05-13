@@ -145,6 +145,8 @@ return [
         Estoque\Providers\EventServiceProvider::class,
         Estoque\Providers\RouteServiceProvider::class,
 
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
+
     ],
 
     /*
