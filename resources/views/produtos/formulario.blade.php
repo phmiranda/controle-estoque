@@ -5,7 +5,7 @@
         <hr>
 
 
-        <form method="post" action="/produtos/salvar">
+        <form method="post" action="/produtos/store">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
                 <label for="">Nome:</label>

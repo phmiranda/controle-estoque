@@ -25,9 +25,9 @@
                     <td class="text-center">{{ $produto->quantidade }}</td>
                     <td class="text-center">R$ {{ $produto->valor }}</td>
                     <td class="text-center">
-                        <a class="btn btn-primary btn-xs" href="/produtos/detalhar/{{ $produto->id }}">Detalhar</a>
-                        <a class="btn btn-warning btn-xs" href="/produtos/atualizar/{{ $produto->id }}">Atualizar</a>
-                        <a class="btn btn-danger btn-xs" href="/produtos/deletar/{{ $produto->id }}">Excluir</a>
+                        <a class="btn btn-primary btn-xs" href="/produtos/show/{{ $produto->id }}">Detalhar</a>
+                        <a class="btn btn-warning btn-xs" href="/produtos/update/{{ $produto->id }}">Atualizar</a>
+                        <a class="btn btn-danger btn-xs" href="/produtos/destroy/{{ $produto->id }}">Excluir</a>
                     </td>
                 </tr>
             </tbody>

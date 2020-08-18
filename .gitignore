@@ -1,25 +1,21 @@
-# jetbrain ide config
+# comentário.
 .idea/
-*.iml
-
-# netbeans ide config
-nbproject/
-
-# visual studio code editor config
 .vscode/
 
-
-# file manager dependencies
+# comentário.
 composer.lock
 package-lock.json
 
-# directory manager dependencies
+# comentário.
+storage/
 node_modules/
 vendor/
 
-# homestead config
+# comentário.
 Homestead.yaml
 Homestead.json
-
-# enviroment config
 .env
+
+# comentário.
+*.iml
+*.log

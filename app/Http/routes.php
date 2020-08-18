@@ -15,10 +15,25 @@ Route::get('/', function (){
     return "Ola Mundo...";
 });
 
-Route::get('/produtos', 'ProdutoController@index');
-Route::get('/produtos-rest', 'ProdutoController@indexJson');
-Route::post('/produtos/salvar', 'ProdutoController@salvar');
-Route::get('/produtos/cadastrar', 'ProdutoController@cadastrar');
-Route::get('/produtos/detalhar/{id}', 'ProdutoController@detalhar');
-Route::get('/produtos/atualizar/{id}', 'ProdutoController@atualizar');
-Route::get('/produtos/deletar/{id}', 'ProdutoController@deletar');
+Route::group(['prefix' => 'categorias'], function () {
+    Route::get('', 'CategoriaController@index');
+    Route::get('create', 'CategoriaController@create');
+    Route::post('store', 'CategoriaController@store');
+    Route::get('update/{id}', 'CategoriaController@update');
+    Route::get('destroy/{id}', 'CategoriaController@destroy');
+    Route::get('show/{id}', 'CategoriaController@show');
+});
+
+Route::group(['prefix' => 'produtos'], function () {
+    Route::get('', 'ProdutoController@index');
+    Route::get('create', 'ProdutoController@create');
+    Route::post('store', 'ProdutoController@store');
+    Route::get('update/{id}', 'ProdutoController@update');
+    Route::get('destroy/{id}', 'ProdutoController@destroy');
+    Route::get('show/{id}', 'ProdutoController@show');
+});
+
+
+Route::group(['prefix' => 'api'], function () {
+    Route::get('produtos', 'ProdutoController@indexJson');
+});

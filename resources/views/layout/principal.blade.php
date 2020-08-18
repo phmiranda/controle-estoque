@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://estoque.dsv.com.br/produtos">Painel Administrativo</a>
+                <a class="navbar-brand" href="/produtos">Painel Administrativo</a>
             </div>
 
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
@@ -32,7 +32,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produtos <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/produtos">Informações</a></li>
-                            <li><a href="/produtos/cadastrar">Cadastrar</a></li>
+                            <li><a href="/produtos/create">Cadastrar</a></li>
                         </ul>
                     </li>
                 </ul>
